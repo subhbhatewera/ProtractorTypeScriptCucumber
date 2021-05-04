@@ -1,0 +1,361 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "i-am-going-to-validate-super-calculator-functionality;validate-addition-of-two-numbers-via-super-calculator",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Validate addition of two numbers via Super Calculator",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "Open \"Super Calculator\" Webpage",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1520000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "User enter numbers \"5\" and \"26\"",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 367000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "Result will display as \"31\"",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1956000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 21000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Calculator",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "i-am-going-to-validate-super-calculator-functionality;validate-addition-of-two-numbers-via-super-calculator",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Validate addition of two numbers via Super Calculator",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 13,
+            "name": "Open \"Super Calculator\" Webpage",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 451000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "User enter numbers \"4\" and \"5\"",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 348000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "Result will display as \"9\"",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1956000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Calculator",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "i-am-going-to-validate-super-calculator-functionality;validate-addition-of-two-numbers-via-super-calculator",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Validate addition of two numbers via Super Calculator",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 20,
+            "name": "Open \"Super Calculator\" Webpage",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 770000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "User enter numbers \"8\" and \"6\"",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 344000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "Result will display as \"14\"",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1940000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Calculator",
+            "line": 17
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "i-am-going-to-validate-super-calculator-functionality;validate-entering-of-data-in-search-field",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Validate entering of data in Search field",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 27,
+            "name": "Open \"Angular\" Webpage",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4738000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 28,
+            "name": "User click on new angular app link",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2969000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 29,
+            "name": "New Angular web page should display and enter \"Hello\"",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 547000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 25000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Angular",
+            "line": 24
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "i-am-going-to-validate-super-calculator-functionality",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "I am going to validate Super Calculator functionality",
+    "tags": [],
+    "uri": "..\\features\\demo.feature"
+  }
+]

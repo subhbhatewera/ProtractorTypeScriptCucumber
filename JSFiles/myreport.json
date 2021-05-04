@@ -1,0 +1,92 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "i-am-going-to-validate-super-calculator-functionality;validate-addition-of-two-numbers-via-super-calculator",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Validate addition of two numbers via Super Calculator",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "Open \"Super Calculator\" Webpage",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2469000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "User enter numbers \"5\" and \"26\"",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 191000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "Result will display as \"31\"",
+            "match": {
+              "location": "..\\stepDefinitions\\steps.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1914000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 26000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Calculator",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "i-am-going-to-validate-super-calculator-functionality",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "I am going to validate Super Calculator functionality",
+    "tags": [],
+    "uri": "..\\features\\demo.feature"
+  }
+]
