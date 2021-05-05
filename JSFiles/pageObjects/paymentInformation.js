@@ -15,53 +15,51 @@ class payment {
     constructor() {
         this.cardNumberField = protractor_1.element(protractor_1.by.css("[id='number']"));
         this.nameField = protractor_1.element(protractor_1.by.css("[placeholder*='Name on']"));
-        this.expirationDateField = protractor_1.element(protractor_1.by.css("[placeholder*='Expiration']"));
+        this.expirationDateField = protractor_1.element(protractor_1.by.css("[id='expiry']"));
         this.securityCodeField = protractor_1.element(protractor_1.by.css("[placeholder*='Security']"));
-        this.payBtn = protractor_1.element(protractor_1.by.css("continue_button"));
-        this.frames = protractor_1.element.all(protractor_1.by.tagName("iframe"));
-    }
-    getFramesCount() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.frames.count().then((numberofFrames) => {
-                console.log("number of frames are =>" + numberofFrames);
-            });
-        });
+        this.payBtn = protractor_1.element(protractor_1.by.css("#continue_button"));
     }
     enterCardNumber(cardNumber) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield protractor_1.browser.switchTo().frame(protractor_1.element(protractor_1.by.css("[id*='card-fields-number']")).getWebElement());
-            yield this.cardNumberField.sendKeys(cardNumber);
+            yield protractor_1.browser.switchTo().frame(protractor_1.element(protractor_1.by.css("iframe[id*='card-fields-number']")).getWebElement());
+            //Entering data one by one char becuase all the characters are not entered in one go
+            for (let i = 0; i < cardNumber.length; i++) {
+                let char = cardNumber.charAt(i);
+                yield protractor_1.browser.actions().mouseMove(this.cardNumberField).click().sendKeys(char).perform();
+            }
+            yield protractor_1.browser.switchTo().defaultContent();
         });
     }
     enterName(nameOnCard) {
         return __awaiter(this, void 0, void 0, function* () {
-            let EC = protractor_1.browser.ExpectedConditions;
-            yield protractor_1.browser.sleep(2000);
-            yield protractor_1.browser.switchTo().defaultContent();
-            yield protractor_1.browser.sleep(2000);
             yield protractor_1.browser.switchTo().frame(protractor_1.element(protractor_1.by.css("iframe[id*='card-fields-name']")).getWebElement());
-            protractor_1.browser.wait(EC.elementToBeClickable(this.nameField), 15000);
-            yield this.cardNumberField.sendKeys(nameOnCard);
+            yield this.nameField.sendKeys(nameOnCard);
+            yield protractor_1.browser.switchTo().defaultContent();
         });
     }
     enterExpirationDate(expirationDate) {
         return __awaiter(this, void 0, void 0, function* () {
             yield protractor_1.browser.switchTo().frame(protractor_1.element(protractor_1.by.css("[id*='card-fields-expiry']")).getWebElement());
-            yield this.expirationDateField.sendKeys(expirationDate);
+            //Entering data one by one char becuase all the characters are not entered in one go
+            for (let i = 0; i < expirationDate.length; i++) {
+                let char = expirationDate.charAt(i);
+                yield protractor_1.browser.actions().mouseMove(this.expirationDateField).click().sendKeys(char).perform();
+            }
+            yield protractor_1.browser.switchTo().defaultContent();
         });
     }
     enterSecutiryCode(secutiryCode) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield protractor_1.browser.switchTo().frame(protractor_1.element(protractor_1.by.css("[id*='card-fields-expiry']")).getWebElement());
+            yield protractor_1.browser.switchTo().frame(protractor_1.element(protractor_1.by.css("[id*='card-fields-verification']")).getWebElement());
             yield this.securityCodeField.sendKeys(secutiryCode);
+            yield protractor_1.browser.switchTo().defaultContent();
         });
     }
     clickOnPayNowBtn() {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.switchTo().defaultContent;
             yield this.payBtn.click();
         });
     }
 }
 exports.payment = payment;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGF5bWVudEluZm9ybWF0aW9uLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vcGFnZU9iamVjdHMvcGF5bWVudEluZm9ybWF0aW9uLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBLDJDQUFxRjtBQUVyRixNQUFhLE9BQU87SUFRaEI7UUFDSSxJQUFJLENBQUMsZUFBZSxHQUFDLG9CQUFPLENBQUMsZUFBRSxDQUFDLEdBQUcsQ0FBQyxlQUFlLENBQUMsQ0FBQyxDQUFDO1FBQ3RELElBQUksQ0FBQyxTQUFTLEdBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLDBCQUEwQixDQUFDLENBQUMsQ0FBQztRQUMzRCxJQUFJLENBQUMsbUJBQW1CLEdBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLDZCQUE2QixDQUFDLENBQUMsQ0FBQztRQUN4RSxJQUFJLENBQUMsaUJBQWlCLEdBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLDJCQUEyQixDQUFDLENBQUMsQ0FBQztRQUNwRSxJQUFJLENBQUMsTUFBTSxHQUFDLG9CQUFPLENBQUMsZUFBRSxDQUFDLEdBQUcsQ0FBQyxpQkFBaUIsQ0FBQyxDQUFDLENBQUM7UUFDL0MsSUFBSSxDQUFDLE1BQU0sR0FBRyxvQkFBTyxDQUFDLEdBQUcsQ0FBQyxlQUFFLENBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxDQUFDLENBQUM7SUFDcEQsQ0FBQztJQUVLLGNBQWM7O1lBQ2xCLElBQUksQ0FBQyxNQUFNLENBQUMsS0FBSyxFQUFFLENBQUMsSUFBSSxDQUFDLENBQUMsY0FBYyxFQUFDLEVBQUU7Z0JBQ3ZDLE9BQU8sQ0FBQyxHQUFHLENBQUMseUJBQXlCLEdBQUUsY0FBYyxDQUFDLENBQUE7WUFDMUQsQ0FBQyxDQUFDLENBQUE7UUFDSixDQUFDO0tBQUE7SUFFSyxlQUFlLENBQUMsVUFBaUI7O1lBQ25DLE1BQU0sb0JBQU8sQ0FBQyxRQUFRLEVBQUUsQ0FBQyxLQUFLLENBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLDRCQUE0QixDQUFDLENBQUMsQ0FBQyxhQUFhLEVBQUUsQ0FBQyxDQUFDO1lBQzlGLE1BQU0sSUFBSSxDQUFDLGVBQWUsQ0FBQyxRQUFRLENBQUMsVUFBVSxDQUFDLENBQUM7UUFDcEQsQ0FBQztLQUFBO0lBRUssU0FBUyxDQUFDLFVBQWlCOztZQUM3QixJQUFJLEVBQUUsR0FBRyxvQkFBTyxDQUFDLGtCQUFrQixDQUFDO1lBQ3JDLE1BQU0sb0JBQU8sQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLENBQUM7WUFDMUIsTUFBTSxvQkFBTyxDQUFDLFFBQVEsRUFBRSxDQUFDLGNBQWMsRUFBRSxDQUFDO1lBQzFDLE1BQU0sb0JBQU8sQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLENBQUM7WUFDMUIsTUFBTSxvQkFBTyxDQUFDLFFBQVEsRUFBRSxDQUFDLEtBQUssQ0FBQyxvQkFBTyxDQUFDLGVBQUUsQ0FBQyxHQUFHLENBQUMsZ0NBQWdDLENBQUMsQ0FBQyxDQUFDLGFBQWEsRUFBRSxDQUFDLENBQUM7WUFDbEcsb0JBQU8sQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDLG9CQUFvQixDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsRUFBQyxLQUFLLENBQUMsQ0FBQztZQUM1RCxNQUFNLElBQUksQ0FBQyxlQUFlLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQyxDQUFDO1FBQ25ELENBQUM7S0FBQTtJQUVLLG1CQUFtQixDQUFDLGNBQXFCOztZQUMzQyxNQUFNLG9CQUFPLENBQUMsUUFBUSxFQUFFLENBQUMsS0FBSyxDQUFDLG9CQUFPLENBQUMsZUFBRSxDQUFDLEdBQUcsQ0FBQyw0QkFBNEIsQ0FBQyxDQUFDLENBQUMsYUFBYSxFQUFFLENBQUMsQ0FBQztZQUM5RixNQUFNLElBQUksQ0FBQyxtQkFBbUIsQ0FBQyxRQUFRLENBQUMsY0FBYyxDQUFDLENBQUM7UUFDNUQsQ0FBQztLQUFBO0lBRUssaUJBQWlCLENBQUMsWUFBbUI7O1lBQ3ZDLE1BQU8sb0JBQU8sQ0FBQyxRQUFRLEVBQUUsQ0FBQyxLQUFLLENBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLDRCQUE0QixDQUFDLENBQUMsQ0FBQyxhQUFhLEVBQUUsQ0FBQyxDQUFDO1lBQy9GLE1BQU0sSUFBSSxDQUFDLGlCQUFpQixDQUFDLFFBQVEsQ0FBQyxZQUFZLENBQUMsQ0FBQztRQUN4RCxDQUFDO0tBQUE7SUFFSyxnQkFBZ0I7O1lBQ2xCLG9CQUFPLENBQUMsUUFBUSxFQUFFLENBQUMsY0FBYyxDQUFDO1lBQ2xDLE1BQU0sSUFBSSxDQUFDLE1BQU0sQ0FBQyxLQUFLLEVBQUUsQ0FBQztRQUM5QixDQUFDO0tBQUE7Q0FDSjtBQXBERCwwQkFvREMifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGF5bWVudEluZm9ybWF0aW9uLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vcGFnZU9iamVjdHMvcGF5bWVudEluZm9ybWF0aW9uLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBLDJDQUFpRztBQUVqRyxNQUFhLE9BQU87SUFRaEI7UUFDSSxJQUFJLENBQUMsZUFBZSxHQUFDLG9CQUFPLENBQUMsZUFBRSxDQUFDLEdBQUcsQ0FBQyxlQUFlLENBQUMsQ0FBQyxDQUFDO1FBQ3RELElBQUksQ0FBQyxTQUFTLEdBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLDBCQUEwQixDQUFDLENBQUMsQ0FBQztRQUMzRCxJQUFJLENBQUMsbUJBQW1CLEdBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLGVBQWUsQ0FBQyxDQUFDLENBQUM7UUFDMUQsSUFBSSxDQUFDLGlCQUFpQixHQUFDLG9CQUFPLENBQUMsZUFBRSxDQUFDLEdBQUcsQ0FBQywyQkFBMkIsQ0FBQyxDQUFDLENBQUM7UUFDcEUsSUFBSSxDQUFDLE1BQU0sR0FBQyxvQkFBTyxDQUFDLGVBQUUsQ0FBQyxHQUFHLENBQUMsa0JBQWtCLENBQUMsQ0FBQyxDQUFDO0lBQ3BELENBQUM7SUFFSyxlQUFlLENBQUMsVUFBaUI7O1lBQ25DLE1BQU0sb0JBQU8sQ0FBQyxRQUFRLEVBQUUsQ0FBQyxLQUFLLENBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLGtDQUFrQyxDQUFDLENBQUMsQ0FBQyxhQUFhLEVBQUUsQ0FBQyxDQUFDO1lBQ3BHLG9GQUFvRjtZQUNwRixLQUFJLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRyxDQUFDLEdBQUcsVUFBVSxDQUFDLE1BQU0sRUFBRyxDQUFDLEVBQUcsRUFBQztnQkFDekMsSUFBSSxJQUFJLEdBQUcsVUFBVSxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQztnQkFDaEMsTUFBTSxvQkFBTyxDQUFDLE9BQU8sRUFBRSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsZUFBZSxDQUFDLENBQUMsS0FBSyxFQUFFLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxDQUFDLE9BQU8sRUFBRSxDQUFDO2FBQzVGO1lBQ0QsTUFBTSxvQkFBTyxDQUFDLFFBQVEsRUFBRSxDQUFDLGNBQWMsRUFBRSxDQUFDO1FBQzlDLENBQUM7S0FBQTtJQUVLLFNBQVMsQ0FBQyxVQUFpQjs7WUFDOUIsTUFBTSxvQkFBTyxDQUFDLFFBQVEsRUFBRSxDQUFDLEtBQUssQ0FBQyxvQkFBTyxDQUFDLGVBQUUsQ0FBQyxHQUFHLENBQUMsZ0NBQWdDLENBQUMsQ0FBQyxDQUFDLGFBQWEsRUFBRSxDQUFDLENBQUM7WUFDbEcsTUFBTSxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsQ0FBQztZQUMxQyxNQUFNLG9CQUFPLENBQUMsUUFBUSxFQUFFLENBQUMsY0FBYyxFQUFFLENBQUM7UUFDN0MsQ0FBQztLQUFBO0lBRUssbUJBQW1CLENBQUMsY0FBcUI7O1lBQzNDLE1BQU0sb0JBQU8sQ0FBQyxRQUFRLEVBQUUsQ0FBQyxLQUFLLENBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLDRCQUE0QixDQUFDLENBQUMsQ0FBQyxhQUFhLEVBQUUsQ0FBQyxDQUFDO1lBQzlGLG9GQUFvRjtZQUNwRixLQUFJLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRyxDQUFDLEdBQUcsY0FBYyxDQUFDLE1BQU0sRUFBRyxDQUFDLEVBQUcsRUFBQztnQkFDN0MsSUFBSSxJQUFJLEdBQUcsY0FBYyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQztnQkFDcEMsTUFBTSxvQkFBTyxDQUFDLE9BQU8sRUFBRSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsbUJBQW1CLENBQUMsQ0FBQyxLQUFLLEVBQUUsQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLENBQUMsT0FBTyxFQUFFLENBQUM7YUFDaEc7WUFDRCxNQUFNLG9CQUFPLENBQUMsUUFBUSxFQUFFLENBQUMsY0FBYyxFQUFFLENBQUM7UUFDOUMsQ0FBQztLQUFBO0lBRUssaUJBQWlCLENBQUMsWUFBbUI7O1lBQ3ZDLE1BQU8sb0JBQU8sQ0FBQyxRQUFRLEVBQUUsQ0FBQyxLQUFLLENBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLGtDQUFrQyxDQUFDLENBQUMsQ0FBQyxhQUFhLEVBQUUsQ0FBQyxDQUFDO1lBQ3JHLE1BQU0sSUFBSSxDQUFDLGlCQUFpQixDQUFDLFFBQVEsQ0FBQyxZQUFZLENBQUMsQ0FBQztZQUNwRCxNQUFNLG9CQUFPLENBQUMsUUFBUSxFQUFFLENBQUMsY0FBYyxFQUFFLENBQUM7UUFDOUMsQ0FBQztLQUFBO0lBRUssZ0JBQWdCOztZQUNsQixNQUFNLElBQUksQ0FBQyxNQUFNLENBQUMsS0FBSyxFQUFFLENBQUM7UUFDOUIsQ0FBQztLQUFBO0NBQ0o7QUFuREQsMEJBbURDIn0=

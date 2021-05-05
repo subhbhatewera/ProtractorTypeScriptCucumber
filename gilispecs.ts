@@ -54,21 +54,19 @@ describe("Gili Products Automation Suite", ()=>{
         browser.wait(EC.invisibilityOf(ship.shippingSpinner),10000);
         ship.selectShipping("Gili");        
         await ship.continuePaymentBtn.click();
-      //  browser.wait(EC.visibilityOf(pay.cardNumberField), 5000);    
-        console.log(pay.getFramesCount());
-        await pay.enterCardNumber("5555555555554444");        
+        await pay.enterCardNumber("378282246310005");               
         await pay.enterName("Linda");
-        pay.enterExpirationDate(1223);
-        pay.enterSecutiryCode(961);
-        pay.clickOnPayNowBtn();
+        await pay.enterExpirationDate("1223");
+        await pay.enterSecutiryCode(961);
+        await pay.clickOnPayNowBtn();
     })
 
- /*   it("Get Order Number", async()=>{
+    it("Get Order Number", async()=>{
         expect (ordeconf.orderProcessingMsg.getText()).toEqual("Your order's being processed.");
         await ordeconf.orderProcessingMsg;
         (ordeconf.orderProcessingMsg.getText()).then((text)=>{
             console.log(text);
         })
         
-    })*/
+    })
 })

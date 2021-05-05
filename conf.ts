@@ -1,4 +1,4 @@
-import {Config} from 'protractor'
+import {browser, Config} from 'protractor'
 
 export let config: Config = {
 
