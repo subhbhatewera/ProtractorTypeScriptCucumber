@@ -52,7 +52,7 @@ describe("Gili Products Automation Suite", ()=>{
     it("Place Order", async()=>{
         await contact.continueBtn.click();
         browser.wait(EC.invisibilityOf(ship.shippingSpinner),10000);
-        ship.selectShipping("Gili");        
+        ship.shipping("FedEx");      
         await ship.continuePaymentBtn.click();
         await pay.enterCardNumber("378282246310005");               
         await pay.enterName("Linda");
@@ -62,11 +62,6 @@ describe("Gili Products Automation Suite", ()=>{
     })
 
     it("Get Order Number", async()=>{
-        expect (ordeconf.orderProcessingMsg.getText()).toEqual("Your order's being processed.");
-        await ordeconf.orderProcessingMsg;
-        (ordeconf.orderProcessingMsg.getText()).then((text)=>{
-            console.log(text);
-        })
-        
+        await ordeconf.getOrderNumber();        
     })
 })

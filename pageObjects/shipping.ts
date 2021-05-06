@@ -6,19 +6,23 @@ export class shippingDetails{
     shippingSpinner:ElementFinder;    
 
     constructor(){
-        this.radioBtns=element.all(by.css("[class='radio-wrapper']"));
+        this.radioBtns=element.all(by.css("[class='radio-wrapper'] label span[class*='primary']"));
         this.continuePaymentBtn=element(by.buttonText("Continue to payment"));
         this.shippingSpinner=element(by.css("svg[class*='spinner blank-slate']"));
     }
 
-    async selectShipping(shipmethod:string){
-            await this.radioBtns.each(()=>{
-            this.radioBtns.getAttribute("data-shipping-method").then((shipping)=>{
-                if(shipping.includes(shipmethod)){
-                    element(by.css("[class='radio__input']")).click();
+    async shipping(shipmethod:string){     
+        this.radioBtns.getAttribute("data-shipping-method-label-title").then(async (temp)=>{            
+            for(let i = 0 ; i < temp.length ; i++){
+                if(temp[i].includes(shipmethod)){                    
+                    console.log(temp[i]);                                     
+                    await element.all(by.css("[class='radio__input']")).get(i).click();
+                    break ;
                 }
-            })
-
-        })
+                else{
+                    console.log(shipmethod+" option is not available so Order will be placed using default shipping option");
+                }
+            }
+       })        
     }
 }

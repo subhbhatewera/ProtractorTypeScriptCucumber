@@ -13,21 +13,26 @@ exports.shippingDetails = void 0;
 const protractor_1 = require("protractor");
 class shippingDetails {
     constructor() {
-        this.radioBtns = protractor_1.element.all(protractor_1.by.css("[class='radio-wrapper']"));
+        this.radioBtns = protractor_1.element.all(protractor_1.by.css("[class='radio-wrapper'] label span[class*='primary']"));
         this.continuePaymentBtn = protractor_1.element(protractor_1.by.buttonText("Continue to payment"));
         this.shippingSpinner = protractor_1.element(protractor_1.by.css("svg[class*='spinner blank-slate']"));
     }
-    selectShipping(shipmethod) {
+    shipping(shipmethod) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.radioBtns.each(() => {
-                this.radioBtns.getAttribute("data-shipping-method").then((shipping) => {
-                    if (shipping.includes(shipmethod)) {
-                        protractor_1.element(protractor_1.by.css("[class='radio__input']")).click();
+            this.radioBtns.getAttribute("data-shipping-method-label-title").then((temp) => __awaiter(this, void 0, void 0, function* () {
+                for (let i = 0; i < temp.length; i++) {
+                    if (temp[i].includes(shipmethod)) {
+                        console.log(temp[i]);
+                        yield protractor_1.element.all(protractor_1.by.css("[class='radio__input']")).get(i).click();
+                        break;
                     }
-                });
-            });
+                    else {
+                        console.log(shipmethod + " option is not available so Order will be placed using default shipping option");
+                    }
+                }
+            }));
         });
     }
 }
 exports.shippingDetails = shippingDetails;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2hpcHBpbmcuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9wYWdlT2JqZWN0cy9zaGlwcGluZy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFBQSwyQ0FBcUY7QUFFckYsTUFBYSxlQUFlO0lBS3hCO1FBQ0ksSUFBSSxDQUFDLFNBQVMsR0FBQyxvQkFBTyxDQUFDLEdBQUcsQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLHlCQUF5QixDQUFDLENBQUMsQ0FBQztRQUM5RCxJQUFJLENBQUMsa0JBQWtCLEdBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsVUFBVSxDQUFDLHFCQUFxQixDQUFDLENBQUMsQ0FBQztRQUN0RSxJQUFJLENBQUMsZUFBZSxHQUFDLG9CQUFPLENBQUMsZUFBRSxDQUFDLEdBQUcsQ0FBQyxtQ0FBbUMsQ0FBQyxDQUFDLENBQUM7SUFDOUUsQ0FBQztJQUVLLGNBQWMsQ0FBQyxVQUFpQjs7WUFDOUIsTUFBTSxJQUFJLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxHQUFFLEVBQUU7Z0JBQzlCLElBQUksQ0FBQyxTQUFTLENBQUMsWUFBWSxDQUFDLHNCQUFzQixDQUFDLENBQUMsSUFBSSxDQUFDLENBQUMsUUFBUSxFQUFDLEVBQUU7b0JBQ2pFLElBQUcsUUFBUSxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsRUFBQzt3QkFDN0Isb0JBQU8sQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLHdCQUF3QixDQUFDLENBQUMsQ0FBQyxLQUFLLEVBQUUsQ0FBQztxQkFDckQ7Z0JBQ0wsQ0FBQyxDQUFDLENBQUE7WUFFTixDQUFDLENBQUMsQ0FBQTtRQUNOLENBQUM7S0FBQTtDQUNKO0FBckJELDBDQXFCQyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2hpcHBpbmcuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9wYWdlT2JqZWN0cy9zaGlwcGluZy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFBQSwyQ0FBcUY7QUFFckYsTUFBYSxlQUFlO0lBS3hCO1FBQ0ksSUFBSSxDQUFDLFNBQVMsR0FBQyxvQkFBTyxDQUFDLEdBQUcsQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLHNEQUFzRCxDQUFDLENBQUMsQ0FBQztRQUMzRixJQUFJLENBQUMsa0JBQWtCLEdBQUMsb0JBQU8sQ0FBQyxlQUFFLENBQUMsVUFBVSxDQUFDLHFCQUFxQixDQUFDLENBQUMsQ0FBQztRQUN0RSxJQUFJLENBQUMsZUFBZSxHQUFDLG9CQUFPLENBQUMsZUFBRSxDQUFDLEdBQUcsQ0FBQyxtQ0FBbUMsQ0FBQyxDQUFDLENBQUM7SUFDOUUsQ0FBQztJQUVLLFFBQVEsQ0FBQyxVQUFpQjs7WUFDNUIsSUFBSSxDQUFDLFNBQVMsQ0FBQyxZQUFZLENBQUMsa0NBQWtDLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBTyxJQUFJLEVBQUMsRUFBRTtnQkFDL0UsS0FBSSxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUcsQ0FBQyxHQUFHLElBQUksQ0FBQyxNQUFNLEVBQUcsQ0FBQyxFQUFFLEVBQUM7b0JBQ2xDLElBQUcsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsRUFBQzt3QkFDNUIsT0FBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQzt3QkFDckIsTUFBTSxvQkFBTyxDQUFDLEdBQUcsQ0FBQyxlQUFFLENBQUMsR0FBRyxDQUFDLHdCQUF3QixDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsS0FBSyxFQUFFLENBQUM7d0JBQ25FLE1BQU87cUJBQ1Y7eUJBQ0c7d0JBQ0EsT0FBTyxDQUFDLEdBQUcsQ0FBQyxVQUFVLEdBQUMsZ0ZBQWdGLENBQUMsQ0FBQztxQkFDNUc7aUJBQ0o7WUFDTixDQUFDLENBQUEsQ0FBQyxDQUFBO1FBQ0wsQ0FBQztLQUFBO0NBQ0o7QUF6QkQsMENBeUJDIn0=
